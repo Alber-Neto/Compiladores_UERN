@@ -9,10 +9,14 @@
 %}
 
 
-TAGABERTURA <h[1-6]>|<[a-z]+" "[a-z]+(_[a-z]+)?\=\".+?\">
-TAGFECHAMENTO <\/h[1-6]>|<\/[a-z]+>
-TAGISOLADA <[a-z]+" "\/>
-CONTEUDOPAGINA [a-zA-Z]+|<[0-9]+>|<\/[a-z]+.\/>
+NOME [a-zA-Z]+
+NUM [0-9]+
+TAGABERTURA <h[1-6]>|<{NOME}[\ ]{NOME}([_]{NOME})?\=\".+?\">|<{NOME}>
+TAGFECHAMENTO <\/h[1-6]>|<\/{NOME}>
+TAGISOLADA <{NOME}[\ ]\/>
+CONTEUDO \/{NOME}\/|{NOME}\/|NUM|[/,_\.]|{NOME}
+CONTEUDOPAGINA ((<?[\ ]?{CONTEUDO}+[\ ]{CONTEUDO}+[\ ]?>?)[\ ]?)*|<{NOME}\/>
+
 
 %%
 
