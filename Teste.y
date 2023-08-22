@@ -1,0 +1,14 @@
+%{
+#include <stdio.h>
+#include "lex.yy.c"
+%}
+%union {
+char *str;
+};
+%token<str> PRINT ABREP FECHAP VIRGULA ID STR NUM FIM_ENTRADA DOISP IF WHILE COMPARACAO IGUAL OPERADORES
+
+%%
+ATRIBUIÇÂO:ID IGUAL STR| ID IGUAL NUM
+ARITIMEDICOS: NUM OPERADORES NUM
+
+%%
